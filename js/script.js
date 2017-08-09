@@ -38,6 +38,7 @@ $(document).ready(function() {
   //Choose Colors
   $('button').on('click','span.color',function() {
     $('.fa-pencil').css('color', this.id);
+    $('#b1').addClass('clicked_button')
     shrink_button();
   });
 
