@@ -1,0 +1,337 @@
+body {
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(rgb(170, 46, 116), rgb(125, 26, 194));
+  height: 100%;
+  margin: 0;
+  min-width: 930px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #ffffff;
+
+}
+.container-paint{
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  min-height: 100px;
+  color: #ffffff;
+  padding: 10px;
+  box-shadow: inset -2px 2px 20px rgb(36, 7, 73);
+}
+
+button:focus {
+  outline: 0;
+}
+
+
+/* Logo */
+header #logo {
+  float: left;
+  margin-top: auto;
+  float: left;
+  padding-left: 85px;
+  font-weight: bold;
+}
+
+
+/* nav */
+header li {
+  float: left;
+  display: inline;
+}
+
+header span {
+  font-size: 12px;
+  padding-left: 20px
+}
+
+header nav {
+  float: right;
+  margin-top: 30px;
+  margin-right: 100px;
+}
+
+header a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 0 20px 0 20px;
+  padding: 3px 0 3px 0;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+}
+
+a:hover {
+  color: rgb(44, 18, 77);
+}
+
+#onpage {
+  color: rgb(44, 18, 77);
+}
+
+/* Paint Option Buttons */
+.b {
+  width: 60px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(56, 27, 93);
+  font-family: Cambria;
+  border: 2px solid transparent;
+  box-shadow: 2px 2px 10px rgb(36, 7, 73);
+  transition: all 300ms;
+}
+
+.b:hover {
+  border-bottom: 2px solid #ffffff;
+}
+
+.size{
+  position: relative;
+}
+.op{
+  position: relative;
+}
+
+.margin-top {
+  transform: translateY(47px);
+}
+.margin-top:hover{
+  transform: translateY(47px);
+}
+
+.clicked_button {
+  border-bottom: 2px solid #ffffff;
+}
+
+#b1 i{
+  color: white;
+}
+#b1{
+  cursor: pointer;
+}
+
+#b2 {
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+#more {
+  cursor: col-resize;
+  float: right;
+  font-size: 10px;
+  margin-left: 10px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+
+
+#more:hover {
+  color: rgb(166, 137, 203);
+}
+
+.button_wider {
+  width: 300px;
+  margin-bottom: 200px;
+  justify-content: center;
+}
+
+.middle {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+/* Color Stuff */
+.color {
+  perspective: 5;
+  transition: all 300ms;
+  width: 30px;
+  height: 30px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  animation-name: fade-in;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+}
+
+#blue {
+  background: blue;
+  float: left;
+  margin-left: 10px;
+}
+
+#green {
+  background: green;
+  float: left;
+  margin-left: 30px;
+}
+
+#red {
+  background: red;
+  float: right;
+  margin-right: 10px;
+}
+
+#yellow {
+  background: yellow;
+  float: right;
+  margin-right: 30px;
+}
+
+#gray {
+  background: gray;
+  float: left;
+  margin-top: 45px;
+  margin-left: -90px;
+}
+
+#black {
+  background: black;
+  float: left;
+  margin-top: 45px;
+  margin-left: -30px;
+}
+
+#HotPink{
+  background: HotPink;
+  float: left;
+  margin-top: 45px;
+  margin-left: 25px;
+  position: absolute;
+}
+
+#white {
+  background: white;
+  margin-top: 45px;
+  float: left;
+  position: absolute;
+  margin-left: 85px;
+}
+
+/* Picture Stuff */
+#pics {
+  height: 100vh;
+}
+.scroll{
+  display: block;
+  margin-top: 20vh;
+  overflow: hidden;
+  border-radius: 30px;
+  height: 450px;
+  width: 650px;
+  margin: 20px auto;
+  text-align: center;
+}
+.control{
+  margin: 0 auto;
+  width: 20%;
+  display: block;
+  background: rgb(213, 177, 235);
+  height: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: rgb(36, 7, 73);
+  border: 0;
+  box-shadow: inset 2px 2px 10px rgb(36, 7, 73);
+}
+.back{
+  float: left;
+  padding: 0 20px;
+  border-radius: 10px;
+  transition: all 300ms;
+  cursor: pointer;
+}
+.next{
+  float: right;
+  padding: 0 20px;
+  border-radius: 10px;
+  transition: all 300ms;
+  cursor: pointer;
+}
+.back:hover{
+  box-shadow: inset 1px 1px 10px rgb(36, 7, 73);
+  background: rgb(223, 187, 245);
+}
+.next:hover{
+  box-shadow: inset 1px 1px 10px rgb(36, 7, 73);
+  background: rgb(223, 187, 245);
+}
+
+.pic {
+  /*transform: rotateZ(180deg);*/
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  height: 440px;
+  visibility: hidden;
+  animation-delay: 200ms;
+  animation-name: fade-in-2;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+/* Memory Stuff */
+.memory {
+  resize: horizontal;
+  background: rgba(109, 44, 139, .7);
+  opacity: .6;
+  border: 2px solid white;
+  padding: 10px;
+  margin: 30px 0 0 30px;
+  width: 300px;
+  transition: all 300ms;
+}
+
+.memory:hover {
+  transform: scale(1.08);
+  box-shadow: 2px 2px 10px rgb(36, 7, 73);
+}
+
+.left-mem {
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
+
+.right-mem {
+  margin-left: 400px;
+  margin-top: -600px;
+}
+
+.rightb-mem {
+  margin-left: 500px;
+  margin-bottom: -400px;
+}
+
+/* Key Frame Animations */
+@keyframes fade-in {
+  0%{
+    transform: scaleY(0);
+  }100%{
+    transform: scaleY(1);
+  }
+}
+@keyframes fade-in-2 {
+  0%{
+    visibility: visible;
+    transform: rotateX(90deg);
+  }100%{
+    transform: rotateX(0deg);
+    visibility: visible;
+  }
+}
