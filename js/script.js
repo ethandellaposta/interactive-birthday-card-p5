@@ -4,6 +4,7 @@ $(document).ready(function() {
   for(var x=1; x<23; x++){
     $('.pic_holder').append("<img class='pic pic"+x.toString()+"' src='pics/img"+x.toString()+".PNG'>")
   }
+  $('.control').append('<span class="pag"> 1/24 </span>');
   $('.pic_holder').append("<video class='pic pic23' autoplay loop muted><source src='pics/vid1.mp4' type='video/mp4'>Your browser does not support the video tag.</video>")
   $('.pic_holder').append("<video class='pic pic24' autoplay loop muted><source src='pics/vid2.mp4' type='video/mp4'>Your browser does not support the video tag.</video>")
 
@@ -27,6 +28,8 @@ $(document).ready(function() {
     }
     $pic.addClass('go_away')
     setTimeout(function() {
+      $('.control').find('span').empty();
+      $('.control').append('<span class="pag">'+current_pic.toString()+'/24</span>');
       $pic = $('html').find(".pic" + current_pic.toString());
       $('html').find(".pic").removeClass('current_pic');
       $('html').find(".pic").removeClass('go_away');
