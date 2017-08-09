@@ -1,5 +1,39 @@
 $(document).ready(function() {
 
+  //Pic Scroll Section Stuff
+  for(var x=1; x<23; x++){
+    $('.pic_holder').append("<img class='pic pic"+x.toString()+"' src='pics/img"+x.toString()+".PNG'>")
+  }
+  $('.pic_holder').append("<video class='pic pic23' autoplay loop muted><source src='pics/vid1.mp4' type='video/mp4'>Your browser does not support the video tag.</video>")
+  $('.pic_holder').append("<video class='pic pic24' autoplay loop muted><source src='pics/vid2.mp4' type='video/mp4'>Your browser does not support the video tag.</video>")
+
+  var current_pic = 1;
+  var $pic = $('html').find(".pic" + current_pic.toString());
+  $pic.addClass('current_pic');
+  $('.next, .back').click(function(){
+    var what = $(this).attr('class');
+    if(what=='next'){
+      if(current_pic == 24){
+        current_pic= 1;
+      }else{
+        current_pic+=1
+      }
+    }else{
+      if(current_pic == 1){
+        current_pic= 24;
+      }else{
+        current_pic-=1;
+      }
+    }
+    $pic.addClass('go_away')
+    setTimeout(function() {
+      $pic = $('html').find(".pic" + current_pic.toString());
+      $('html').find(".pic").removeClass('current_pic');
+      $('html').find(".pic").removeClass('go_away');
+      $pic.addClass('current_pic');
+    }, 300);
+  });
+
   //Make pencil button shrink
   function shrink_button(){
     $('#b1').toggleClass('clicked_button');

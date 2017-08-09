@@ -9,7 +9,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #ffffff;
-
 }
 .container-paint{
   -webkit-touch-callout: none; /* iOS Safari */
@@ -274,16 +273,31 @@ a:hover {
 }
 
 .pic {
-  /*transform: rotateZ(180deg);*/
+  border: 2px solid rgb(213, 177, 235);
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   margin: 0 auto;
   overflow: hidden;
   display: block;
   height: 440px;
   visibility: hidden;
-  animation-delay: 200ms;
+}
+
+
+.current_pic{
+  transform: perspective(200px);
   animation-name: fade-in-2;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+}
+.go_away{
+  animation-name: fade-out;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
 }
 
 /* Memory Stuff */
@@ -329,9 +343,22 @@ a:hover {
 @keyframes fade-in-2 {
   0%{
     visibility: visible;
-    transform: rotateX(90deg);
+    opacity: 0;
+    transform: rotateX(-90deg);
   }100%{
+    opacity: 1;
     transform: rotateX(0deg);
     visibility: visible;
+  }
+}
+@keyframes fade-out {
+  0%{
+    visibility: visible;
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100%{
+    transform: rotateX(180deg);
+    opacity: 0;
   }
 }
