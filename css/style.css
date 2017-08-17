@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #ffffff;
+  overflow: hidden;
 }
 .container-paint{
   -webkit-touch-callout: none; /* iOS Safari */
@@ -364,7 +365,7 @@ a:hover {
 }
 .todo{
   display: block;
-  color: blue;
+  color: gray;
   margin: 0 auto;
 }
 
