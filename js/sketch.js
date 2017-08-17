@@ -3,7 +3,7 @@ function setup() {
   console.log("Setup!")
   noFill();
   scrollsize = createSlider(5,100);
-  scrollsize.class("size");
+  scrollsize.id("size");
   scrollsize.size(60,10);
 }
 

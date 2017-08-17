@@ -37,6 +37,13 @@ $(document).ready(function() {
     }, 300);
   });
 
+  //Coloring Book Random
+  for(var i=1; i < 12; i++){
+    $('.container-paint').append('<img src="pics/outlines/outline'+i.toString()+'.png" class="i'+i.toString()+' outline" alt="outline">');
+  }
+  var random = Math.floor((Math.random() * 11) + 1).toString();
+  $('.i'+random).addClass('shown');
+
   //Make pencil button shrink
   function shrink_button(){
     $('#b1').toggleClass('clicked_button');
