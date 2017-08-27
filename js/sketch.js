@@ -21,9 +21,6 @@ function mousePressed(){
     fill(c);
     millis(0)
   }
-  else{
-    fill(255)
-  }
 }
 function mouseReleased(){
   noFill();
