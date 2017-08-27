@@ -22,7 +22,7 @@ function mousePressed(){
     millis(0)
   }
   else{
-    fill(0)
+    fill(255)
   }
 }
 function mouseReleased(){
