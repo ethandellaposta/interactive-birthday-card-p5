@@ -15,6 +15,8 @@ function draw() {
   ellipse(mouseX,mouseY,thick,thick);
 }
 function mousePressed(){
+  document.addEventListener('touchstart', function(e) {e.preventDefault()}, false);
+  document.addEventListener('touchmove', function(e) {e.preventDefault()}, false);
   var no_paint = document.getElementById('test').classList.contains('no_paint')
   if(document.getElementById('b1').classList.contains('clicked_button') && $('#b1:hover').length == 0 && $('#b2:hover').length == 0 && $('.size:hover').length == 0){
     var c = document.getElementById('pencil').style.color;
