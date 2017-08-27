@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  //Disable Scrolling
+  $(window).scroll(function() {
+    scroll(0,0);
+});
+
   //Pic Scroll Section Stuff
   for(var x=1; x<23; x++){
     $('.pic_holder').append("<img class='pic pic"+x.toString()+"' src='pics/img"+x.toString()+".PNG'>")

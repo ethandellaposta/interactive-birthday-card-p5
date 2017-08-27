@@ -9,7 +9,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #ffffff;
-  overflow: hidden;
+  overflow: auto;
 }
 .container-paint{
   -webkit-touch-callout: none; /* iOS Safari */
