@@ -1,5 +1,6 @@
 function setup() {
   canvas = createCanvas(window.innerWidth, window.innerHeight);
+  canvas.class('myCanvas')
   console.log("Setup!")
   noFill();
   scrollsize = createSlider(5,100);

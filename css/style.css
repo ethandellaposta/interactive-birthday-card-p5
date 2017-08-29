@@ -62,6 +62,7 @@ header nav {
   float: right;
   margin-top: 30px;
   margin-right: 100px;
+  min-width: 100px;
 }
 
 header a {
@@ -127,7 +128,7 @@ a:hover {
   display: none;
   z-index: -1;
   position: absolute;
-  width: 500px;
+  width: 450px;
   top: 150px;
   left: 0;
   right: 0;
@@ -152,6 +153,9 @@ a:hover {
 #b2 {
   cursor: pointer;
   margin-top: 50px;
+}
+#b3{
+  margin-top: 100px;
 }
 
 #more {
@@ -345,7 +349,45 @@ a:hover {
 
 /*To Do*/
 
+/* Surprise */
 
+.map{
+  margin-top: 20px;
+  display: grid;
+  grid-gap: 100px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+.item{
+  width: 100px;
+  height: 100px;
+  color: black;
+  border-radius: 100%;
+  text-align: center;
+  background-color: white;
+  justify-content: center;
+  padding: 40px;
+}
+.one{
+  background: rgba(155, 89, 182,1);
+  border: 1px solid transparent;
+  transition: all 1s
+}
+.one:hover{
+  border: 1px solid #ffffff;
+}
+.item > img{
+  width: 70px;
+  height: 70px;
+  margin-left: -25px;
+  margin-top: -23px;
+}
+
+.myCanvas{
+  margin-left: 120px;
+}
 
 
 

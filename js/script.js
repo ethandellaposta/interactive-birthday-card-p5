@@ -46,9 +46,15 @@ $(document).ready(function() {
   for(var i=1; i < 12; i++){
     $('.container-paint').append('<img src="pics/outlines/outline'+i.toString()+'.png" class="i'+i.toString()+' outline" alt="outline">');
   }
-  var random = Math.floor((Math.random() * 11) + 1).toString();
-  $('.i'+random).addClass('shown');
+    var random = Math.floor((Math.random() * 11) + 1).toString();
+    $('html').find('shown').removeClass('shown');
+    $('.i'+random).addClass('shown');
 
+  $("#b3").click(function(){
+    var random = Math.floor((Math.random() * 11) + 1).toString();
+    $('html').find('.shown').removeClass('shown');
+    $('.i'+random).addClass('shown');
+  });
   //Make pencil button shrink
   function shrink_button(){
     $('#b1').toggleClass('clicked_button');
@@ -60,6 +66,7 @@ $(document).ready(function() {
     $('#more').empty();
     $('#more').append('>');
   }
+
 
   //Make pencil button expand (revealing colors)
   function expand_button(){
