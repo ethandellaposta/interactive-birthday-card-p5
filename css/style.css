@@ -11,6 +11,14 @@ body {
   color: #ffffff;
   overflow: auto;
 }
+
+.lock-screen {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+}
+
 .container-paint{
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -434,3 +442,4 @@ a:hover {
   0%{transform: scale(.5);opacity: 0;}
   100%{transform: scale(1);opacity: 1;}
 }
+
