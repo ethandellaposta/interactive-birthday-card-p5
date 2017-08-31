@@ -1,6 +1,7 @@
 CREATE TABLE todo(
     id INT,
-    message VARCHAR(255)
+    message VARCHAR(255),
+    status BOOLEAN
 );
 
-insert into todo (message) values ("Elf Night");
+insert into todo (message,status) values ("Elf Night", false);
