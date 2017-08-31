@@ -5,16 +5,9 @@ function setup(){
 
 }
 
-function readdb() {
-    var str = "";
-    var txtFile = new File("tododb.txt");
-    txtFile.open("r");
-    while (!txtFile.eof) {
-        str += txtFile.readln() + "\n";
-    }
-    return str;
-}
 
 function makeScrap(str){
+    for(i=0;i<str.length;i++){
 
+    }
 }
