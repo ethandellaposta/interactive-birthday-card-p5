@@ -1,8 +1,8 @@
 function Heart(x,y){
   this.x = x;
   this.y = y;
-  this.w = 10;
-  this.h = 10;
+  this.w = 15;
+  this.h = 15;
   this.img = loadImage('js/game/img/heart.png')
 
   this.show = function(){
