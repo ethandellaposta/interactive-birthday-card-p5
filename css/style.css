@@ -5,7 +5,7 @@ body {
   background: linear-gradient(rgb(170, 46, 116), rgb(125, 26, 194));
   height: 100%;
   margin: 0;
-  min-width: 930px;
+  min-width: 1200px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #ffffff;
@@ -163,6 +163,7 @@ a:hover {
   margin-top: 50px;
 }
 #b3{
+  cursor: pointer;
   margin-top: 100px;
 }
 
@@ -360,43 +361,105 @@ a:hover {
 /* Surprise */
 
 .map{
+  border-radius: 40px;
+  padding: 30px;
   margin-top: 20px;
+  margin-bottom: 100px;
   display: grid;
-  grid-gap: 100px;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:    1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
 }
 .item{
   width: 100px;
   height: 100px;
-  color: black;
+  color: #429be4;
+  font-size: 30px;
+  font-weight: bold;
   border-radius: 100%;
   text-align: center;
-  background-color: white;
+  background:  rgba(0,0,0,.6);
   justify-content: center;
   padding: 40px;
+  transition: all 1s;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.item:hover{
+  border: 2px solid #ffffff;
+  transform: scale(1.2);
+
+}
+.item i{
+  font-size: 70px;
+  margin-left: -15px;
+  margin-top: -25px;
 }
 .one{
-  background: rgba(155, 89, 182,1);
-  border: 1px solid transparent;
-  transition: all 1s
-}
-.one:hover{
-  border: 1px solid #ffffff;
-}
-.item > img{
-  width: 70px;
-  height: 70px;
-  margin-left: -25px;
-  margin-top: -23px;
+  background: rgba(255,255,255,.6);
+  grid-row: 2;
+  grid-column: 2;
 }
 
+.two{
+  margin-left: -100px;
+  grid-row: 4;
+  grid-column: 2;
+}
+.three{
+  grid-row: 6;
+  grid-column: 2;
+}
+.four{
+  grid-row: 7;
+  grid-column: 4;
+}
+.five{
+  grid-row: 6;
+  grid-column: 6;
+}
+.six{
+  grid-row: 4;
+  grid-column: 6;
+  margin-right: -100px;
+}
+.seven{
+  grid-row: 2;
+  grid-column: 6;
+}
+.eight{
+  grid-row: 1;
+  grid-column: 4;
+}
+.nine{
+  grid-row: 4;
+  grid-column: 4;
+}
+.code{
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+.code-show{
+  visibility: visible;
+  animation-name: show-code;
+  animation-fill-mode: forwards;
+  animation-duration: 300ms;
+}
+.code-hide{
+
+}
+
+/* Game */
 .myCanvas{
   margin-left: 120px;
 }
 .game{
+  position: absolute;
+  border-radius: 20px;
   margin-left: 100px;
   margin-top: 70px;
 }
@@ -405,6 +468,7 @@ a:hover {
   margin-left: 100px;
   margin-top: 70px;
 }
+
 
 
 
@@ -449,4 +513,11 @@ a:hover {
   0%{transform: scale(.5);opacity: 0;}
   100%{transform: scale(1);opacity: 1;}
 }
-
+@keyframes show-code {
+  0%{
+    transform: translateY(200px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}

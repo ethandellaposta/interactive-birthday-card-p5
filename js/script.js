@@ -51,9 +51,12 @@ $(document).ready(function() {
     $('.i'+random).addClass('shown');
 
   $("#b3").click(function(){
-    var random = Math.floor((Math.random() * 11) + 1).toString();
+    var new_random = Math.floor((Math.random() * 11) + 1).toString();
+    while(random==new_random){
+      var new_random = Math.floor((Math.random() * 11) + 1).toString();
+    }
     $('html').find('.shown').removeClass('shown');
-    $('.i'+random).addClass('shown');
+    $('.i'+new_random).addClass('shown');
   });
   //Make pencil button shrink
   function shrink_button(){
@@ -107,6 +110,12 @@ $(document).ready(function() {
       shrink_button();
     }
   });
+
+  //Direction Stuff
+  $('.item').click(function() {
+    $('.code').toggleClass('code-show')
+  });
+
 
 
 });
