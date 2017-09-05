@@ -16,7 +16,7 @@ function setup(){
 }
 
 function draw(){
-  background(69, 76, 107);
+  background(255,255,255.1);
   //kyle
   kyle.show();
   //sarahs
