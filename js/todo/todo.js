@@ -1,13 +1,24 @@
+var Engine = Matter.Engine,
+    //Render = Matter.Render,
+    World = Matter.World,
+    Bodies = Matter.Bodies;
+
+var engine,world,box1;
+
+
 function setup(){
-    canvas = createCanvas(windowWidth - 50,windowHeight - 110);
-    canvas.class("todo");
-    colorMode(RGB,255,255,255,1);
+    noStroke();
+    canvas = createCanvas(800,400)
+    canvas.class('todo');
+    engine = Engine.create();
+    world = engine.world;
+    box1 = Bodies.rectangle(200,100,80,80);
+    Engine.run(engine);
+    World.add(world,box1);
 
 }
 
-
-function makeScrap(str){
-    for(i=0;i<str.length;i++){
-
-    }
+function draw() {
+    background(255);
+    rect(box1.position.x,box1.position.y,80,80);
 }
