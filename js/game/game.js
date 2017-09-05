@@ -2,6 +2,7 @@
 var sarahs;
 var kyle;
 var hearts;
+var onscreen = 0;
 
 
 function setup(){
@@ -34,8 +35,9 @@ function draw(){
   for(var i=0; i<hearts.length; i++){
     hearts[i].show();
     if(hearts[i].y < -30){
-      hearts.splice(i,1)
-      console.log('HSHSH')
+      onscreen -=1;
+      hearts.splice(i,1);
+      console.log('HSHSH');
     }
   }
 
@@ -52,7 +54,9 @@ function draw(){
   }
 }
 function keyPressed(){
-  if(keyCode === 32){
+  if(keyCode === 32 && onscreen < 5){
+    onscreen +=1
     hearts.push(new Heart(kyle.x, kyle.y-19))
+
   }
 }
