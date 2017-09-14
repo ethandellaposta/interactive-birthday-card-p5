@@ -4,6 +4,7 @@ function Heart(x,y){
   this.w = 15;
   this.h = 15;
   this.img = loadImage('js/game/img/heart.png')
+  this.circle1= {radius: 20, x: x, y: y};
 
   this.show = function(){
     fill(255);

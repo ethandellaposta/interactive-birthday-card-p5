@@ -27,9 +27,12 @@ function draw(){
     }
     sarahs[i].show();
   }
-  if(frameCount%500==0){
-    var rand = floor(random(100,700))
-    sarahs.push(new Sarah(rand,-30))
+  if(frameCount%15==0){
+    var r = floor(random(1,7));
+    if(r == 1) {
+        var rand = floor(random(100, 700))
+        sarahs.push(new Sarah(rand, -30))
+    }
   }
   //ground
   fill(200)
@@ -37,6 +40,14 @@ function draw(){
     fill(255,0,0)
     kyle.health -=20
   }
+
+  for(var num =sarahs.length-1; num >= 0; num --){
+    if(isEnemyHit(sarahs[num])){
+      console.log("hit");
+      sarahs.splice(num,1);
+    }
+  }
+
   rect(0,450,800,50)
   //kyle
   kyle.show();
@@ -83,4 +94,23 @@ function isEnemyTouching(){
     }
   }
   return false;
+}
+
+function isEnemyHit(sarah) {
+  for(var i=hearts.length-1; i>= 0 ; i--){
+      debugger;
+      var heart = hearts[i];
+      var dx = heart.circle1.x -sarah.circle1.x;
+      var dy = heart.circle1.y - sarah.circle1.y;
+      var distance = sqrt((dx*dx) + (dy*dy));
+
+      var collide_distance = heart.circle1.radius + sarah.circle1.radius
+      if(distance < collide_distance){
+          return true
+      }
+      else{
+          return false
+      }
+  }
+
 }

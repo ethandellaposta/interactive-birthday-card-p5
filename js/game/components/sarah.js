@@ -4,6 +4,7 @@ function Sarah(x,y){
   this.w = 20;
   this.h = 20;
   this.dir = 1;
+  this.circle1={radius:40, x: x, y: y};
 
   this.show = function(){
     fill(255,0,0);
@@ -21,4 +22,6 @@ function Sarah(x,y){
     ellipseMode(RADIUS);
     ellipse(this.x,this.y,this.w,this.h);
   }
+
+
 }

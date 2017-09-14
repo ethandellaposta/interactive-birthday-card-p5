@@ -1,5 +1,5 @@
 var Engine = Matter.Engine,
-    //Render = Matter.Render,
+    Render = Matter.Render,
     World = Matter.World,
     Bodies = Matter.Bodies;
 
