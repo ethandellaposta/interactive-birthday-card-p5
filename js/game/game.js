@@ -2,7 +2,6 @@
 var sarahs;
 var kyle;
 var hearts;
-var onscreen = 0;
 
 
 function setup(){
@@ -18,14 +17,18 @@ function setup(){
 }
 
 function draw(){
-  background(255,255,255.1);
+  background(255,255,255);
+  console.log(hearts.length)
 
   //sarahs
-  for(var i=0; i<sarahs.length; i++){
+  for(var i=sarahs.length-1; i>=0; i--){
+    sarahs[i].show();
     if(sarahs[i].x > 830 || sarahs[i].x <-30 ||sarahs[i].y > 530){
       sarahs.splice(i,1)
     }
-    sarahs[i].show();
+    if(collision(sarahs[i])){
+      sarahs.splice(i,1);
+    }
   }
   if(frameCount%15==0){
     var r = floor(random(1,7));
@@ -41,13 +44,6 @@ function draw(){
     kyle.health -=20
   }
 
-  for(var num =sarahs.length-1; num >= 0; num --){
-    if(isEnemyHit(sarahs[num])){
-      console.log("hit");
-      sarahs.splice(num,1);
-    }
-  }
-
   rect(0,450,800,50)
   //kyle
   kyle.show();
@@ -59,9 +55,7 @@ function draw(){
   for(var i=0; i<hearts.length; i++){
     hearts[i].show();
     if(hearts[i].y < -30){
-      onscreen -=1;
       hearts.splice(i,1);
-      console.log('HSHSH');
     }
   }
 
@@ -78,10 +72,8 @@ function draw(){
   }
 }
 function keyPressed(){
-  if(keyCode === 32 && onscreen < 5){
-    onscreen +=1
+  if(keyCode === 32 && hearts.length<5){
     hearts.push(new Heart(kyle.x-5, kyle.y-19))
-
   }
 }
 
@@ -96,21 +88,17 @@ function isEnemyTouching(){
   return false;
 }
 
-function isEnemyHit(sarah) {
-  for(var i=hearts.length-1; i>= 0 ; i--){
-      debugger;
-      var heart = hearts[i];
-      var dx = heart.circle1.x -sarah.circle1.x;
-      var dy = heart.circle1.y - sarah.circle1.y;
-      var distance = sqrt((dx*dx) + (dy*dy));
 
-      var collide_distance = heart.circle1.radius + sarah.circle1.radius
-      if(distance < collide_distance){
-          return true
-      }
-      else{
-          return false
-      }
+
+function collision(sarah){
+  for(let x=0; x<hearts.length; x++){
+    heart = hearts[x];
+    var dx = Math.abs(heart.circle1.x - sarah.circle1.x);
+    var dy = Math.abs(heart.circle1.y - sarah.circle1.y);
+    var d = Math.sqrt(dx*dx + dy*dy);
+    if(d<30){
+      hearts.splice(x,1);
+      return true;
+    }
   }
-
 }

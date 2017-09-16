@@ -10,6 +10,7 @@ function Heart(x,y){
     fill(255);
     ellipseMode(RADIUS);
     this.y-=5
+    this.circle1.y-=5;
     image(this.img,this.x,this.y,this.w,this.h);
   }
 }

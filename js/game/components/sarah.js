@@ -9,6 +9,7 @@ function Sarah(x,y){
   this.show = function(){
     fill(255,0,0);
     this.y += .3;
+    this.circle1.y += .3;
     var rand = random(0,100)
     if(rand < .5){
       this.dir = -this.dir;
@@ -18,6 +19,7 @@ function Sarah(x,y){
     }
 
     this.x += 1.3*this.dir;
+    this.circle1.x +=1.3*this.dir;
 
     ellipseMode(RADIUS);
     ellipse(this.x,this.y,this.w,this.h);
