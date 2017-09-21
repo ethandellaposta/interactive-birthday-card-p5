@@ -10,28 +10,28 @@ $(document).ready(function() {
     $('.pic_holder').append("<img class='pic pic"+x.toString()+"' src='pics/img"+x.toString()+".PNG'>")
   }
   $('.control').append('<span class="pag"> 1/24 </span>');
-  $('.pic_holder').append("<video class='pic pic23' autoplay loop muted><source src='pics/vid1.mp4' type='video/mp4'>Your browser does not support the video tag.</video>")
-  $('.pic_holder').append("<video class='pic pic24' autoplay loop muted><source src='pics/vid2.mp4' type='video/mp4'>Your browser does not support the video tag.</video>")
+  $('.pic_holder').append("<video class='pic pic23' autoplay loop muted><source src='pics/vid1.mp4' type='video/mp4'>Your browser does not support the video tag.</video>");
+  $('.pic_holder').append("<video class='pic pic24' autoplay loop muted><source src='pics/vid2.mp4' type='video/mp4'>Your browser does not support the video tag.</video>");
 
   var current_pic = 1;
   var $pic = $('html').find(".pic" + current_pic.toString());
   $pic.addClass('current_pic');
   $('.next, .back').click(function(){
     var what = $(this).attr('class');
-    if(what=='next'){
-      if(current_pic == 24){
+    if(what==='next'){
+      if(current_pic === 24){
         current_pic= 1;
       }else{
         current_pic+=1
       }
     }else{
-      if(current_pic == 1){
+      if(current_pic === 1){
         current_pic= 24;
       }else{
         current_pic-=1;
       }
     }
-    $pic.addClass('go_away')
+    $pic.addClass('go_away');
     setTimeout(function() {
       $('.control').find('span').empty();
       $('.control').append('<span class="pag">'+current_pic.toString()+'/24</span>');
@@ -43,17 +43,17 @@ $(document).ready(function() {
   });
 
   //Coloring Book Random
-  for(var i=1; i < 12; i++){
+  for(var i=1; i < 13; i++){
     $('.container-paint').append('<img src="pics/outlines/outline'+i.toString()+'.png" class="i'+i.toString()+' outline" alt="outline">');
   }
-    var random = Math.floor((Math.random() * 11) + 1).toString();
+    var random = Math.floor((Math.random() * 12) + 1).toString();
     $('html').find('shown').removeClass('shown');
     $('.i'+random).addClass('shown');
 
   $("#b3").click(function(){
-    var new_random = Math.floor((Math.random() * 11) + 1).toString();
-    while(random==new_random){
-      var new_random = Math.floor((Math.random() * 11) + 1).toString();
+    var new_random = Math.floor((Math.random() * 12) + 1).toString();
+    while(random === new_random){
+      var new_random = Math.floor((Math.random() * 12) + 1).toString();
     }
     $('html').find('.shown').removeClass('shown');
     $('.i'+new_random).addClass('shown');
@@ -88,7 +88,7 @@ $(document).ready(function() {
   //Doodle buttons
   $('#b1').click(function() {
     $('#b1').toggleClass('clicked_button');
-    $('#test').addClass('no_paint')
+    $('#test').addClass('no_paint');
     setTimeout(function() {
     $('#test').removeClass('no_paint')
   }, 10);
@@ -97,7 +97,7 @@ $(document).ready(function() {
   //Choose Colors
   $('button').on('click','span.color',function() {
     $('.fa-pencil').css('color', this.id);
-    $('#b1').addClass('clicked_button')
+    $('#b1').addClass('clicked_button');
     shrink_button();
   });
 
