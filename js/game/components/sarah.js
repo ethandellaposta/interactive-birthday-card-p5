@@ -6,7 +6,9 @@ function Sarah(x,y){
   this.dir = 1;
   this.circle1={radius:40, x: x, y: y};
 
+
   this.show = function(){
+
     fill(255,0,0);
     this.y += .3;
     this.circle1.y += .3;

@@ -6,19 +6,32 @@ var hearts;
 
 function setup(){
   noStroke();
-  canvas = createCanvas(800,500)
-  canvas.class('game')
-  canvas.position(100,100)
-  kyle = new Kyle(400,473)
-  sarahs = []
-  var rand = floor(random(100,700))
-  sarahs.push(new Sarah(rand,-30))
+  canvas = createCanvas(800,500);
+  canvas.class('game');
+  canvas.position(100,100);
+  kyle = new Kyle(400,473);
+  sarahs = [];
+  var rand = floor(random(100,700));
+  sarahs.push(new Sarah(rand,-30));
   hearts = []
 }
 
 function draw(){
   background(255,255,255);
-  console.log(hearts.length)
+
+  if(kyle.health <= 0) {
+    textSize(50);
+    fill(0, 0, 0);
+    stroke(0);
+    text("Game Over, Press Enter for a New Game", 220, 150, 450, 900);
+    textSize(20);
+    text("Score: " + kyle.score, 220, 400, 450, 900);
+    if (keyIsDown(13)) {
+
+    keyPressed();
+  }
+    return;
+  }
 
   //sarahs
   for(var i=sarahs.length-1; i>=0; i--){
@@ -30,32 +43,32 @@ function draw(){
       sarahs.splice(i,1);
     }
   }
-  if(frameCount%15==0){
-    var r = floor(random(1,7));
-    if(r == 1) {
-        var rand = floor(random(100, 700))
-        sarahs.push(new Sarah(rand, -30))
+  if(frameCount%15===0){
+    var r = floor(random(1,3));
+    if(r === 1) {
+        var rand = floor(random(100, 700));
+        sarahs.push(new Sarah(rand, -30));
     }
   }
   //ground
-  fill(200)
+  fill(200);
   if(isEnemyTouching()){
-    fill(255,0,0)
+    fill(255,0,0);
     kyle.health -=20
   }
 
-  rect(0,450,800,50)
+  rect(0,450,800,50);
   //kyle
   kyle.show();
   textSize(20);
-  fill(255,255,255)
-  text("Health: "+kyle.health,20,463,150,500)
-  text("Score: "+kyle.score,670,463,800,500)
+  fill(255,255,255);
+  text("Health: "+kyle.health,20,463,150,500);
+  text("Score: "+kyle.score,670,463,800,500);
   //hearts
-  for(var i=0; i<hearts.length; i++){
-    hearts[i].show();
-    if(hearts[i].y < -30){
-      hearts.splice(i,1);
+  for(var j=0; j<hearts.length; j++){
+    hearts[j].show();
+    if(hearts[j].y < -30){
+      hearts.splice(j,1);
     }
   }
 
@@ -73,14 +86,20 @@ function draw(){
 }
 function keyPressed(){
   if(keyCode === 32 && hearts.length<5){
-    hearts.push(new Heart(kyle.x-5, kyle.y-19))
+    hearts.push(new Heart(kyle.x-5, kyle.y-19));
+  }
+  if(keyCode === 13 && kyle.health <=0){
+    kyle.health = 100;
+    kyle.score = 0;
+    sarahs=[];
+    hearts=[];
   }
 }
 
 function isEnemyTouching(){
   for(var x=sarahs.length-1; x>=0; x--){
     if(sarahs[x].y >= 433){
-      sarahs.splice(x,1)
+      sarahs.splice(x,1);
       return true
 
     }
@@ -91,14 +110,20 @@ function isEnemyTouching(){
 
 
 function collision(sarah){
-  for(let x=0; x<hearts.length; x++){
+  for(var x=0; x<hearts.length; x++){
     heart = hearts[x];
     var dx = Math.abs(heart.circle1.x - sarah.circle1.x);
     var dy = Math.abs(heart.circle1.y - sarah.circle1.y);
     var d = Math.sqrt(dx*dx + dy*dy);
     if(d<30){
       hearts.splice(x,1);
+      var rand = floor(random(100, 700));
+      sarahs.push(new Sarah(rand, -30));
+      kyle.score +=100;
       return true;
     }
   }
 }
+
+
+
