@@ -26,10 +26,18 @@ function draw(){
     text("Game Over, Press Enter for a New Game", 220, 150, 450, 900);
     textSize(20);
     text("Score: " + kyle.score, 220, 400, 450, 900);
+    if(kyle.score >= 35000){
+      fill(0, 0, 0);
+      stroke(0);
+      textSize(20);
+      text("Secret code unlocked: 6391",220, 420, 450,900)
+    }
     if (keyIsDown(13)) {
 
     keyPressed();
   }
+
+
     return;
   }
 
