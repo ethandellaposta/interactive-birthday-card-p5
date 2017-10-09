@@ -2,7 +2,11 @@
 var sarahs;
 var kyle;
 var hearts;
+var highscore;
 
+
+info = document.getElementById('highscore');
+info.innerHTML = "HighScore: " + highscore;
 
 function setup(){
   noStroke();
@@ -26,6 +30,9 @@ function draw(){
     text("Game Over, Press Enter for a New Game", 220, 150, 450, 900);
     textSize(20);
     text("Score: " + kyle.score, 220, 400, 450, 900);
+    if(kyle.score > highscore){
+      highscore = kyle.score;
+    }
     if(kyle.score >= 35000){
       fill(0, 0, 0);
       stroke(0);
