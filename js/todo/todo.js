@@ -1,7 +1,9 @@
 var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
-    Bodies = Matter.Bodies;
+    Bodies = Matter.Bodies,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint
 
 var engine,world,box1;
 
@@ -24,16 +26,12 @@ function setup(){
     ground = Bodies.rectangle(400, 390, 800, 20, {isStatic: true});
     World.add(world,ground);
     fill(0);
-    var mouseconstraint = Matter.MouseConstraint.create(engine, {
-      constraint: {
-        stiffness: 0.01,
-        render: {
-          visible: false,
-          lineWidth: 0
-        }
-      }
-    });
-    World.add(world,mouseconstraint)
+    var canvasMouse = Mouse.create(canvas.elt);
+    var options = {
+      mouse: canvasMouse
+    }
+    var mouseConstraint = MouseConstraint.create(engine, options);
+    World.add(world,mouseConstraint)
 
 
 }
