@@ -27,6 +27,7 @@ function setup(){
     World.add(world,ground);
     fill(0);
     var canvasMouse = Mouse.create(canvas.elt);
+    canvasMouse.pixelRatio = pixelDensity();
     var options = {
       mouse: canvasMouse
     }

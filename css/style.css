@@ -82,6 +82,8 @@ header a {
   border-bottom: 2px solid transparent;
   transition: all .2s;
   cursor: pointer;
+  position: relative;
+  z-index: 100;
 }
 
 a:hover {
