@@ -5,14 +5,9 @@ var Engine = Matter.Engine,
     Mouse = Matter.Mouse,
     MouseConstraint = Matter.MouseConstraint;
 
-var engine,world,box1;
+var engine,world,box1, arr;
 
-arr = [];
 
-for(i = 0; i<5; i++){
-    arr[i] = new Notes(200,200)
-    World.add(world,arr[i].body);
-}
 
 
 function setup(){
@@ -36,13 +31,20 @@ function setup(){
     }
     var mouseConstraint = MouseConstraint.create(engine, options);
     World.add(world,mouseConstraint)
+    arr = [];
+
+    for(var i = 0; i<5; i++){
+        arr.push(new Notes(200,200));
+        console.log(arr);
+        World.add(world,arr[i].body);
+  }
 
 
 
 }
 
 function draw() {
-    for(i = arr.length; i = 0; i--){
+    for(var i = arr.length; i = 0; i--){
         arr[i].draw();
     }
     background(255);
