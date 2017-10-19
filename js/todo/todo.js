@@ -34,9 +34,10 @@ function setup(){
     arr = [];
 
     for(var i = 0; i<5; i++){
-        arr.push(new Notes(200,200));
-        console.log(arr);
-        World.add(world,arr[i].body);
+        var newNote = new Notes(200,200);
+        arr.push(newNote);
+        console.log(newNote);
+        World.add(world, newNote.body);
   }
 
 
@@ -44,11 +45,11 @@ function setup(){
 }
 
 function draw() {
-    for(var i = arr.length; i = 0; i--){
-        arr[i].draw();
-    }
     background(255);
     rectMode(CENTER);
     rect(ground.position.x,ground.position.y,800,20);
+    for(let i=0; i<arr.length; i++){
+      arr[i].draw();
+  }
 }
 
