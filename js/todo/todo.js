@@ -13,8 +13,8 @@ function setup(){
     canvas = createCanvas(800,400)
     canvas.class('todo');
     engine = Engine.create();
-  engine.positionIterations = 1;
-  engine.velocityIterations = 1;
+    engine.positionIterations = 1;
+    engine.velocityIterations = 1;
     world = engine.world;
     box1 = Bodies.rectangle(200,100,80,80);
     Engine.run(engine);
