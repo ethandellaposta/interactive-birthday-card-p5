@@ -33,7 +33,7 @@ function draw(){
     if(kyle.score > highscore){
       highscore = kyle.score;
     }
-    if(kyle.score >= 35000){
+    if(kyle.score >= 25000){
       fill(0, 0, 0);
       stroke(0);
       textSize(20);
