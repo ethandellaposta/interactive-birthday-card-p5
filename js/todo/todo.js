@@ -7,10 +7,11 @@ var Engine = Matter.Engine,
 
 var engine,world,box1;
 
-note = [];
+arr = [];
 
 for(i = 0; i<5; i++){
-    note[i] = new Notes(200,200)
+    arr[i] = new Notes(200,200)
+    World.add(world,arr[i].body);
 }
 
 
@@ -41,9 +42,8 @@ function setup(){
 }
 
 function draw() {
-    for(i = note.length; i = 0; i--){
-        note[i].draw();
-        console.log(note)
+    for(i = arr.length; i = 0; i--){
+        arr[i].draw();
     }
     background(255);
     rectMode(CENTER);

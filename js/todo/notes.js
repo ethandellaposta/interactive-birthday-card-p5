@@ -4,7 +4,7 @@ function Notes(x,y) {
   this.w = 20;
   this.h = 20;
   this.body= Bodies.circle(x,y,20);
-  this.mass = Matter.Body.setMass(this, 500000000);
+  this.mass = Matter.Body.setMass(this, 500);
 
 
   this.draw = function(){
