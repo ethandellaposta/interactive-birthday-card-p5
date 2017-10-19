@@ -3,26 +3,29 @@ var Engine = Matter.Engine,
     World = Matter.World,
     Bodies = Matter.Bodies,
     Mouse = Matter.Mouse,
-    MouseConstraint = Matter.MouseConstraint
+    MouseConstraint = Matter.MouseConstraint;
 
 var engine,world,box1;
+
+arr = [];
+
+for(i = 0; i<5; i++){
+    arr[i] = new Notes(200,200)
+    World.add(world,arr[i].body);
+}
 
 
 function setup(){
     noStroke();
-    canvas = createCanvas(800,400)
+    canvas = createCanvas(800,400);
     canvas.class('todo');
     engine = Engine.create();
     engine.positionIterations = 1;
     engine.velocityIterations = 1;
     world = engine.world;
-    box1 = Bodies.rectangle(200,100,80,80);
     Engine.run(engine);
-    World.add(world,box1);
-
 
     //make ground
-
     ground = Bodies.rectangle(400, 390, 800, 20, {isStatic: true});
     World.add(world,ground);
     fill(0);
@@ -35,23 +38,15 @@ function setup(){
     World.add(world,mouseConstraint)
 
 
+
 }
 
 function draw() {
-  console.log(ground);
+    for(i = arr.length; i = 0; i--){
+        arr[i].draw();
+    }
     background(255);
     rectMode(CENTER);
-    fill(0);
-    //Matter.Body.setPosition(box1, {x: mouseX, y: mouseY})
-    rect(box1.position.x,box1.position.y,80,80);
-
-  rectMode(CENTER);
-  rect(ground.position.x,ground.position.y,800,20)
-
-
+    rect(ground.position.x,ground.position.y,800,20);
 }
 
-// function mouseReleased() {
-//
-//   Matter.Body.setVelocity(box1, {x: 10, y: -10})
-// }
