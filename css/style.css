@@ -9,6 +9,7 @@ body {
   background-attachment: fixed;
   color: #ffffff;
   overflow: auto;
+  min-width: 1000px;
 }
 
 .lock-screen {
@@ -504,20 +505,5 @@ a:hover {
   }
   100%{
     transform: translateY(0);
-  }
-}
-
-@media screen and (max-width: 950px) {
-  header nav{
-    position: absolute;
-    left: 90px;;
-    top: 100px;
-  }
-  header{
-    height: 200px;
-    width: 100vw;
-  }
-  header a{
-    font-size: 15px;
   }
 }
