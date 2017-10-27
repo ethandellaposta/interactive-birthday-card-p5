@@ -50,68 +50,69 @@ function draw(){
     keyPressed();
   }
 
+  }
+  else {
+      //sarahs
+      for (var i = sarahs.length - 1; i >= 0; i--) {
+          sarahs[i].show();
+          if (sarahs[i].x > 830 || sarahs[i].x < -30 || sarahs[i].y > 530) {
+              sarahs.splice(i, 1)
+          }
+          if (collision(sarahs[i])) {
+              sarahs.splice(i, 1);
+          }
+      }
+      if (frameCount % 15 === 0) {
+          var r = floor(random(1, 3));
+          if (r === 1) {
+              var rand = floor(random(100, 700));
+              sarahs.push(new Sarah(rand, -30));
+          }
+      }
+      //ground
+      fill(200);
+      if (isEnemyTouching()) {
+          fill(255, 0, 0);
+          kyle.health -= 20
+      }
 
-    
-  }
+      rect(0, 450, 800, 50);
+      //kyle
+      if (kissing <= 10) {
+          kyle.img = pic2;
+          kissing++;
+      }
+      else {
+          kyle.img = pic;
+      }
+      kyle.show();
+      textSize(20);
+      fill(255, 255, 255);
+      text("Health: " + kyle.health, 20, 463, 150, 500);
+      text("Score: " + kyle.score, 670, 463, 800, 500);
+      //hearts
+      for (var j = 0; j < hearts.length; j++) {
+          hearts[j].show();
+          if (hearts[j].y < -30) {
+              hearts.splice(j, 1);
+          }
+      }
 
-  //sarahs
-  for(var i=sarahs.length-1; i>=0; i--){
-    sarahs[i].show();
-    if(sarahs[i].x > 830 || sarahs[i].x <-30 ||sarahs[i].y > 530){
-      sarahs.splice(i,1)
-    }
-    if(collision(sarahs[i])){
-      sarahs.splice(i,1);
-    }
-  }
-  if(frameCount%15===0){
-    var r = floor(random(1,3));
-    if(r === 1) {
-        var rand = floor(random(100, 700));
-        sarahs.push(new Sarah(rand, -30));
-    }
-  }
-  //ground
-  fill(200);
-  if(isEnemyTouching()){
-    fill(255,0,0);
-    kyle.health -=20
-  }
-
-  rect(0,450,800,50);
-  //kyle
-  if(kissing<=10){
-    kyle.img = pic2;
-    kissing++;
-  }
-  else{
-    kyle.img = pic;
-  }
-  kyle.show();
-  textSize(20);
-  fill(255,255,255);
-  text("Health: "+kyle.health,20,463,150,500);
-  text("Score: "+kyle.score,670,463,800,500);
-  //hearts
-  for(var j=0; j<hearts.length; j++){
-    hearts[j].show();
-    if(hearts[j].y < -30){
-      hearts.splice(j,1);
-    }
-  }
-
-  //move
-  if(kyle.x >=30){
-    if(keyIsDown(LEFT_ARROW)){
-      kyle.x -= 10;
-    }
-  }
-  if(kyle.x <=770){
-    if(keyIsDown(RIGHT_ARROW)){
-      kyle.x += 10;
-    }
+      //move
+      if (kyle.x >= 30) {
+          if (keyIsDown(LEFT_ARROW)) {
+              kyle.x -= 10;
+          }
+      }
+      if (kyle.x <= 770) {
+          if (keyIsDown(RIGHT_ARROW)) {
+              kyle.x += 10;
+          }
+      }
   }
 }
+
+
 function keyPressed(){
   if(keyCode === 32 && hearts.length<5){
     hearts.push(new Heart(kyle.x-5, kyle.y-19));
