@@ -2,7 +2,8 @@ body {
   font: 15px/1.5 Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
-  background: linear-gradient(rgb(170, 46, 116), rgb(125, 26, 194));
+  /* rgb(170, 46, 116) */
+  background: rgb(125, 26, 194);
   height: 100%;
   margin: 0;
   background-repeat: no-repeat;
@@ -36,7 +37,6 @@ header {
   min-height: 100px;
   color: #ffffff;
   padding: 10px;
-  box-shadow: inset -2px 2px 20px rgb(36, 7, 73);
 }
 
 button:focus {
@@ -453,6 +453,8 @@ a:hover {
   border-radius:20px;
   margin-left: 100px;
   margin-top: 70px;
+  border: 10px solid rgba(36, 7, 73, .5);
+  box-shadow: 3px 3px 20px rgba(0,0,0,.3);
 }
 
 

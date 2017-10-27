@@ -46,15 +46,15 @@ $(document).ready(function() {
   for(var i=1; i < 13; i++){
     $('.container-paint').append('<img src="pics/outlines/outline'+i.toString()+'.png" class="i'+i.toString()+' outline" alt="outline">');
   }
+  
     var random = Math.floor((Math.random() * 12) + 1).toString();
     $('html').find('shown').removeClass('shown');
     $('.i'+random).addClass('shown');
 
   $("#b3").click(function(){
     var new_random = Math.floor((Math.random() * 12) + 1).toString();
-    while(random === new_random){
+    while(random == new_random)
       var new_random = Math.floor((Math.random() * 12) + 1).toString();
-    }
     $('html').find('.shown').removeClass('shown');
     $('.i'+new_random).addClass('shown');
   });

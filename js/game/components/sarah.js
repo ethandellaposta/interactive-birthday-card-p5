@@ -1,10 +1,11 @@
 function Sarah(x,y){
   this.x = x;
   this.y = y;
-  this.w = 20;
-  this.h = 20;
+  this.w = 40;
+  this.h = 40;
   this.dir = 1;
   this.circle1={radius:40, x: x, y: y};
+  this.img = loadImage('js/game/img/sarah.png');
 
 
   this.show = function(){
@@ -23,8 +24,7 @@ function Sarah(x,y){
     this.x += 1.3*this.dir;
     this.circle1.x +=1.3*this.dir;
 
-    ellipseMode(RADIUS);
-    ellipse(this.x,this.y,this.w,this.h);
+    image(this.img,this.circle1.x,this.circle1.y,this.w,this.h);
   }
 
 

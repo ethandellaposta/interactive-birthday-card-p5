@@ -3,13 +3,12 @@ function Heart(x,y){
   this.y = y;
   this.w = 15;
   this.h = 15;
-  this.img = loadImage('js/game/img/heart.png')
+  this.img = loadImage('js/game/img/heart.png');
   this.circle1= {radius: 20, x: x, y: y};
 
   this.show = function(){
-    fill(255);
     ellipseMode(RADIUS);
-    this.y-=5
+    this.y-=5;
     this.circle1.y-=5;
     image(this.img,this.x,this.y,this.w,this.h);
   }

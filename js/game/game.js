@@ -3,17 +3,23 @@ var sarahs;
 var kyle;
 var hearts;
 var highscore;
+var kissing;
+var pic2;
+var pic;
 
 
 info = document.getElementById('highscore');
 info.innerHTML = "HighScore: " + highscore;
 
 function setup(){
+  pic = loadImage('js/game/img/kyle-normal.png');
+  pic2 = loadImage('js/game/img/kyle-kissing.png');
+  kissing=10;
   noStroke();
   canvas = createCanvas(800,500);
   canvas.class('game');
   canvas.position(100,100);
-  kyle = new Kyle(400,473);
+  kyle = new Kyle(400,450);
   sarahs = [];
   var rand = floor(random(100,700));
   sarahs.push(new Sarah(rand,-30));
@@ -45,7 +51,7 @@ function draw(){
   }
 
 
-    return;
+    
   }
 
   //sarahs
@@ -74,6 +80,13 @@ function draw(){
 
   rect(0,450,800,50);
   //kyle
+  if(kissing<=10){
+    kyle.img = pic2;
+    kissing++;
+  }
+  else{
+    kyle.img = pic;
+  }
   kyle.show();
   textSize(20);
   fill(255,255,255);
@@ -102,6 +115,7 @@ function draw(){
 function keyPressed(){
   if(keyCode === 32 && hearts.length<5){
     hearts.push(new Heart(kyle.x-5, kyle.y-19));
+    kissing = 0;
   }
   if(keyCode === 13 && kyle.health <=0){
     kyle.health = 100;
