@@ -10,8 +10,8 @@ $(document).ready(function() {
     $('.pic_holder').append("<img class='pic pic"+x.toString()+"' src='pics/img"+x.toString()+".PNG'>")
   }
   $('.control').append('<span class="pag"> 1/24 </span>');
-  $('.pic_holder').append("<video class='pic pic23' autoplay loop muted><source src='pics/vid1.mp4' type='video/mp4'>Your browser does not support the video tag.</video>");
-  $('.pic_holder').append("<video class='pic pic24' autoplay loop muted><source src='pics/vid2.mp4' type='video/mp4'>Your browser does not support the video tag.</video>");
+  $('.pic_holder').append("<video class='pic pic23' autoplay loop><source src='pics/vid1.mp4' type='video/mp4'>Your browser does not support the video tag.</video>");
+  $('.pic_holder').append("<video class='pic pic24' autoplay loop><source src='pics/vid2.mp4' type='video/mp4'>Your browser does not support the video tag.</video>");
 
   var current_pic = 1;
   var $pic = $('html').find(".pic" + current_pic.toString());
