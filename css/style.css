@@ -145,7 +145,6 @@ a:hover {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  pointer-events: none;
 }
 .shown{
   display: block;
@@ -267,7 +266,9 @@ a:hover {
 
 /* Picture Stuff */
 #pics {
+
   height: 100vh;
+
 }
 .scroll{
   display: block;
