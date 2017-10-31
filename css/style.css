@@ -137,7 +137,7 @@ a:hover {
   padding: 40px;
   border-radius: 10px;
   display: none;
-  z-index: 1;
+  z-index: -1;
   position: absolute;
   width: 450px;
   top: 150px;
