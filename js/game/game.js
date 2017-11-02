@@ -8,9 +8,6 @@ var pic2;
 var pic;
 
 
-info = document.getElementById('highscore');
-info.innerHTML = "HighScore: " + highscore;
-
 function setup(){
   pic = loadImage('js/game/img/kyle-normal.png');
   pic2 = loadImage('js/game/img/kyle-kissing.png');
