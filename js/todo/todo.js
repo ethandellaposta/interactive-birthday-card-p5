@@ -12,9 +12,9 @@ var engine,world,box1, arr, br, bg, bb;
 
 
 function setup(){
-    br = random(130,255);
-    bg = random(130,255);
-    bb = random(130,255);
+    br = random(200,255);
+    bg = random(200,255);
+    bb = random(200,255);
     noStroke();
     canvas = createCanvas(800,400);
     canvas.class('todo');
@@ -36,6 +36,9 @@ function setup(){
      //right wall
      rwall = Bodies.rectangle(900, 200, 200, 400, {isStatic: true});
      World.add(world,rwall);
+     //color coded ground
+     blue_ground = Bodies.rectangle(100, 790, 200, 20, {isStatic: true});
+     World.add(world,blue_ground);
     
     var canvasMouse = Mouse.create(canvas.elt);
     canvasMouse.pixelRatio = pixelDensity();
@@ -47,7 +50,7 @@ function setup(){
     arr = [];
 
     for(var i = 0; i<5; i++){
-        var newNote = new Notes(200,200);
+        var newNote = new Notes(random(20,780), random(20,380),i);
         arr.push(newNote);
         World.add(world, newNote.body);
   }
@@ -61,5 +64,19 @@ function draw() {
     for(let i=0; i<arr.length; i++){
       arr[i].draw();
   }
+  rectMode(CENTER);
+  push();
+  fill(255,0,0);
+  rect(80,398,160,4);
+  fill(0,255,0);
+  rect(240,398,160,4);
+  fill(0,0,255);
+  rect(400,398,160,4);
+  fill(244,55,159);
+  rect(560,398,160,4);
+  fill(244,149,66);
+  rect(720,398,160,4);
+  pop();
+  rect(blue_ground.position.x, blue_ground.position.y, 200,20);
 }
 

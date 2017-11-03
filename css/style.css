@@ -451,8 +451,7 @@ a:hover {
 
 .todo{
   border-radius:20px;
-  margin-left: 100px;
-  margin-top: 70px;
+  margin: 100px 100px;
   border: 10px solid rgba(36, 7, 73, .5);
   box-shadow: 3px 3px 20px rgba(0,0,0,.3);
 }
