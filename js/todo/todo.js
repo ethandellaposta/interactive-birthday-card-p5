@@ -7,6 +7,9 @@ var Engine = Matter.Engine,
 
 var engine,world,box1, arr, br, bg, bb;
 
+let memories = ["Memory 1", "Memory 2",
+  "Memory 3", "Memory 4", "Memory 5"];
+
 
 
 
@@ -50,7 +53,8 @@ function setup(){
     arr = [];
 
     for(var i = 0; i<5; i++){
-        var newNote = new Notes(random(20,780), random(20,380),i);
+        var newNote = new Notes(200,200);
+        newNote.setMessage(memories[i]);
         arr.push(newNote);
         World.add(world, newNote.body);
   }

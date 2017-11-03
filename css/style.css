@@ -266,7 +266,9 @@ a:hover {
 
 /* Picture Stuff */
 #pics {
+
   height: 100vh;
+
 }
 .scroll{
   display: block;
@@ -395,7 +397,7 @@ a:hover {
 
 }
 .item i{
-  font-size: 70px;
+  font-size: 60px;
   margin-left: -15px;
   margin-top: -25px;
 }

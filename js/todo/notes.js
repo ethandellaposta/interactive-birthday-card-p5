@@ -41,4 +41,12 @@ function Notes(x,y,i) {
     ellipseMode(RADIUS);
     ellipse(this.body.position.x,this.body.position.y,this.w,this.h);
   }
+
+  this.getColor = function(){
+    return [this.r,this.g,this.b];
+  }
+
+  this.setMessage = function(message){
+    this.msg = message;
+  }
 }
