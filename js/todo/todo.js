@@ -5,7 +5,7 @@ var Engine = Matter.Engine,
     Mouse = Matter.Mouse,
     MouseConstraint = Matter.MouseConstraint;
 
-var engine,world,box1, arr, br, bg, bb;
+var engine,world,box1, arr, br, bg, bb, red_done, green_done, blue_done, pink_done, orange_done;
 
 let memories = ["Memory 1", "Memory 2",
   "Memory 3", "Memory 4", "Memory 5"];
@@ -53,7 +53,9 @@ function setup(){
     arr = [];
 
     for(var i = 0; i<5; i++){
-        var newNote = new Notes(200,200);
+        var randomx = random(20,780);
+        var randomy = random(20,380);
+        var newNote = new Notes(randomx,randomy, i);
         newNote.setMessage(memories[i]);
         arr.push(newNote);
         World.add(world, newNote.body);
@@ -64,6 +66,11 @@ function setup(){
 }
 
 function draw() {
+  red_done = false;
+  green_done = false;
+  blue_done = false;
+  pink_done = false;
+  orange_done = false;
     background(br,bg,bb);
     for(let i=0; i<arr.length; i++){
       arr[i].draw();
@@ -82,5 +89,39 @@ function draw() {
   rect(720,398,160,4);
   pop();
   rect(blue_ground.position.x, blue_ground.position.y, 200,20);
+
+  if(checkNotes())
+    console.log("DONE!");
+
+  
 }
+
+function checkNotes(){
+  //check if all balls in right position
+  for(let i=0; i<arr.length; i++){
+    let note = arr[i];
+    if((note.x>0 && note.x<160) && i==0){
+      console.log("RED");
+      red_done = true;
+    }
+    if((note.x>160 && note.x<320) && i==1){
+      console.log("GREEN");
+      green_done = true;
+    }
+    if((note.x>320 && note.x<480) && i==2){
+      console.log("BLUE");
+      blue_done = true;
+    }
+    if((note.x>480 && note.x<640) && i==3){
+      console.log("PINK");
+      pink_done = true;
+    }
+    if((note.x>640 && note.x<800) && i==4){
+      console.log("ORANGE");
+      orange_done = true;
+    }
+    
+  }
+   return red_done && green_done && blue_done && pink_done && orange_done;
+};
 
