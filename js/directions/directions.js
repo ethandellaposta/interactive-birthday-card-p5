@@ -1,5 +1,21 @@
 $(document).ready(function(){
-  $('.A').append('<form class="A"> Secret Code<br><input type = "text" name = "Code"><br></form>')
+    $(".one").click(function(e) {
+        $(".cinq").show();
+    });
 
+    $(".two").click(function(e) {
+        $(".un").show();
+    });
 
-})
+    $(".three").click(function(e) {
+        $(".duex").show();
+    });
+
+    $(".four").click(function(e) {
+        $(".trois").show();
+    });
+
+    $(".five").click(function(e) {
+        $(".quatre").show();
+    });
+});
