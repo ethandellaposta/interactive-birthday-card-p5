@@ -112,10 +112,54 @@ $(document).ready(function() {
   });
 
   //Direction Stuff
-  $('.item').click(function() {
-    $('.code').toggleClass('code-show')
+  var input = -1;
+  var codes_left = 4;
+
+  $('.one').click(function(){
+    $('.inputSection').toggleClass('shownInput');
+    input = 1;
+  });
+  $('.three').click(function(){
+    $('.inputSection').toggleClass('shownInput');
+    input = 3;
+  });
+  $('.four').click(function(){
+    $('.inputSection').toggleClass('shownInput');
+    input = 4;
+  });
+  $('.five').click(function(){
+    $('.inputSection').toggleClass('shownInput');
+    input = 5;
   });
 
+  function checkCode(){
+    switch(input){
+      case 1:
+        if($('.inputCode').value == '2531'){
+          ('.one').html('<i class="fa fa-check green"></i>');
+          codes_left--;
+        }
+        break;
+      case 3:
+        if($('.inputCode').value == '9418'){
+          ('.three').html('<i class="fa fa-check green"></i>');
+          codes_left--;
+        }
+        break;
+      case 4:
+        if($('.inputCode').value == '8725'){
+          ('.four').html('<i class="fa fa-check green"></i>');
+          codes_left--;
+        }
+        break;
 
+      case 5:
+        if($('.inputCode').value == '6391'){
+          ('.five').html('<i class="fa fa-check green"></i>');
+          codes_left--;
+        }
+        break;
+    }
+  }
 
 });

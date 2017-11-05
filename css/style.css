@@ -550,6 +550,15 @@ a:hover {
   }
 }
 
+@keyframes slide-up-input {
+  0%{
+    transform: translateY(200px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
 .secretcode {
   display: none;
   font-size: 20px;
@@ -565,5 +574,58 @@ a:hover {
   border: 2px solid transparent;
   cursor: pointer;
 }
+
+.inputSection{
+  position: absolute;
+  width: 100vw;
+  height: 70px;
+  bottom: 0;
+  display: none;
+}
+
+.shownInput{
+  display: block;
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-name: slide-up-input
+}
+
+.inputCode{
+  width: 90%;
+  height: 100%;
+  padding: 20px;
+  padding-top: 23px;
+  font-size: 25px;
+  outline: 0;
+  border: 0;
+}
+
+.inputCode::placeholder{
+  font-size: 25px;
+
+}
+
+.inputButton{
+  position: absolute;
+  outline: 0;
+  font-size: 20px;
+  width: 10%;
+  height: 70px;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  transition: all 300ms;
+  cursor: pointer;
+}
+
+.inputButton:hover{
+  background-color: #777777;
+}
+
+.green{
+  color: green;
+}
+
 
 
