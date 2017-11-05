@@ -5,16 +5,18 @@ var Engine = Matter.Engine,
     Mouse = Matter.Mouse,
     MouseConstraint = Matter.MouseConstraint;
 
-var engine,world,box1, arr, br, bg, bb, red_done, green_done, blue_done, pink_done, orange_done;
+var engine,world,box1, arr, br, bg, bb, red_done, green_done, blue_done, pink_done, orange_done, number_done;
 
-let memories = ["Memory 1", "Memory 2",
-  "Memory 3", "Memory 4", "Memory 5"];
+var memories = ["Stargaze with a Telescope", "Binge Watch Stranger Things",
+  "Go to California", "Make 'Mama Lisa' dinners", "Get a PUPPY", "8725"];
 
 
 
 
 
 function setup(){
+  colorMode(RGB, 255, 255, 255, 1);
+    number_done = 0;
     br = random(200,255);
     bg = random(200,255);
     bb = random(200,255);
@@ -56,7 +58,6 @@ function setup(){
         var randomx = random(20,780);
         var randomy = random(20,380);
         var newNote = new Notes(randomx,randomy, i);
-        newNote.setMessage(memories[i]);
         arr.push(newNote);
         World.add(world, newNote.body);
   }
@@ -66,15 +67,14 @@ function setup(){
 }
 
 function draw() {
+  if(number_done<6){
   red_done = false;
   green_done = false;
   blue_done = false;
   pink_done = false;
   orange_done = false;
-    background(br,bg,bb);
-    for(let i=0; i<arr.length; i++){
-      arr[i].draw();
-  }
+  background(br,bg,bb);
+    
   rectMode(CENTER);
   push();
   fill(255,0,0);
@@ -90,38 +90,94 @@ function draw() {
   pop();
   rect(blue_ground.position.x, blue_ground.position.y, 200,20);
 
-  if(checkNotes())
-    console.log("DONE!");
+
+  if(checkNotes()){
+    addNote(++number_done);
+    resetScreen();
+  }
+  for(let i=0; i<arr.length; i++){
+    arr[i].draw();
+  }
+}
+else{
+  background(br,bg,bb);
+  stroke(0,0,0);
+  fill(0,0,0);
+  textFont("Arial", 40);
+  text("You have found all of the items!", 500,220,800,100);
+}
 
   
+    
+
+  
+}
+
+function resetScreen(){
+  red_done = false;
+  green_done = false;
+  blue_done = false;
+  pink_done = false;
+  orange_done = false;
+  for(let i = 0; i<5; i++){
+    var randomx = random(20,780);
+    var randomy = random(20,380);
+    World.remove(world, arr[i].body);
+    arr[i] = new Notes(randomx, randomy, i);
+    World.add(world, arr[i].body);
+  }
+
 }
 
 function checkNotes(){
   //check if all balls in right position
   for(let i=0; i<arr.length; i++){
     let note = arr[i];
-    if((note.x>0 && note.x<160) && i==0){
-      console.log("RED");
+    if((note.body.position.x>0 && note.body.position.x<160) && i==0 && note.body.position.y>370){
       red_done = true;
+      push();
+      fill(255,0,0, 0.5);
+      rect(80,200,160,400);
+      pop();
     }
-    if((note.x>160 && note.x<320) && i==1){
-      console.log("GREEN");
+    if((note.body.position.x>160 && note.body.position.x<320) && i==1 && note.body.position.y>370){
       green_done = true;
+      push();
+      fill(0,255,0, 0.3);
+      rect(240,200,160,400);
+      pop();
     }
-    if((note.x>320 && note.x<480) && i==2){
-      console.log("BLUE");
+    if((note.body.position.x>320 && note.body.position.x<480) && i==2 && note.body.position.y>370){
       blue_done = true;
+      push();
+      fill(0,0,255, 0.5);
+      rect(400,200,160,400);
+      pop();
     }
-    if((note.x>480 && note.x<640) && i==3){
-      console.log("PINK");
+    if((note.body.position.x>480 && note.body.position.x<640) && i==3 && note.body.position.y>370){
       pink_done = true;
+      push();
+      fill(244,66,159, 0.5);
+      rect(560,200,160,400);
+      pop();
     }
-    if((note.x>640 && note.x<800) && i==4){
-      console.log("ORANGE");
+    if((note.body.position.x>640 && note.body.position.x<800) && i==4 && note.body.position.y>370){
       orange_done = true;
+      push();
+      fill(244,149,66, 0.5);
+      rect(720,200,160,400);
+      pop();
     }
     
   }
    return red_done && green_done && blue_done && pink_done && orange_done;
-};
+}
+
+function addNote(){
+  let rand = Math.floor(random(0,memories.length));
+  $('.todoNoteSection').append('<div class="todoNote">'+memories[rand]+'</div>');
+  memories.splice(rand,1);
+}
+
+
 

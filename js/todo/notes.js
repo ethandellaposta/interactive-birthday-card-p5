@@ -37,9 +37,11 @@ function Notes(x,y,i) {
 
 
   this.draw = function(){
+
     fill(this.r,this.g,this.b);
     ellipseMode(RADIUS);
     ellipse(this.body.position.x,this.body.position.y,this.w,this.h);
+    
   }
 
   this.getColor = function(){
