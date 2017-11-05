@@ -1,21 +1,28 @@
-$(document).ready(function(){
-    $(".one").click(function(e) {
-        $(".cinq").show();
-    });
+function Directions(){
+    this.itemOne =false;
+    this.itemTwo =false;
+    this.itemThree = false;
+    this.itemFour = false;
+    this.itemFive = false;
 
-    $(".two").click(function(e) {
-        $(".un").show();
-    });
+    this.setItemOne =function(){
+        this.itemOne = true;
+    }
+    this.setItemTwo =function(){
+        this.itemTwo = true;
+    }
+    this.setItemThree =function(){
+        this.itemThree = true;
+    }
+    this.setItemFour =function(){
+        this.itemFour = true;
+    }
+    this.setItemFive =function(){
+        this.itemFive = true;
+    }
 
-    $(".three").click(function(e) {
-        $(".duex").show();
-    });
+    this.complete = function(){
+        return (itemOne && itemTwo && itemThree && itemFour && itemFive)
 
-    $(".four").click(function(e) {
-        $(".trois").show();
-    });
-
-    $(".five").click(function(e) {
-        $(".quatre").show();
-    });
-});
+    }
+}
